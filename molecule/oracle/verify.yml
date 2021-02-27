@@ -1,0 +1,17 @@
+---
+# This is an example playbook to execute Ansible tests.
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Debug variables 
+    debug:
+      msg: "{{ java_home }}"
+  - name: Check Java can running
+    command:
+      cmd: "java -version"
+    environment:
+      PATH: "$PATH:{{ java_home }}/"
+      # PATH: "$PATH:/opt/jdk/jdk-11.0.10_linux/bin" #whis works
+    changed_when: true
