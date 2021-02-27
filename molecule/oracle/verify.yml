@@ -12,6 +12,6 @@
     command:
       cmd: "java -version"
     environment:
-      PATH: "$PATH:{{ java_home }}/"
+      PATH: "$PATH:{{ java_home }}/bin"
       # PATH: "$PATH:/opt/jdk/jdk-11.0.10_linux/bin" #whis works
     changed_when: true
