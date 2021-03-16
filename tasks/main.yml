@@ -38,3 +38,13 @@
     owner: root
     group: root
     mode: 0644
+  when: environ_type == 'vagrant'
+- name: Set owner for Java directory
+  become: yes
+  ansible.builtin.file:
+    path: "{{ java_home }}"
+    state: directory
+    owner: vagrant
+    group: vagrant
+    recurse: yes
+  when: environ_type == 'vagrant'
